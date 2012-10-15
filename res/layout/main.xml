@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:id="@+id/home_layout" 
+	android:visibility="gone"
+	android:background="@drawable/bg_home">
+	<ScrollView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="35dip"
+	    android:layout_marginRight="35dip"
+	    android:layout_centerInParent="true"
+	    android:scrollbars="none">
+		<LinearLayout    
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" 
+		    android:orientation="vertical">
+	        <Button
+	            android:id="@+id/start_game" 
+	           	style="@style/home_btn_style"
+	            android:background="@drawable/home_button_select"
+	            android:text="@string/home_btn_game" />
+	        <Button 
+	            android:id="@+id/help"
+	            style="@style/home_btn_style"
+	            android:background="@drawable/home_button_select" 
+	            android:text="@string/home_btn_image" />
+	        <Button
+	            android:id="@+id/experience" 
+	            style="@style/home_btn_style"
+	            android:background="@drawable/home_button_select" 
+	            android:text="@string/home_btn_experience" />
+	        <Button
+	            android:id="@+id/more" 
+	            style="@style/home_btn_style"
+	            android:background="@drawable/home_button_select"
+	            android:text="@string/home_btn_more" />
+		</LinearLayout>
+	</ScrollView>
+	<TextView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_marginBottom="40dip"
+	    android:gravity="center_horizontal"
+	    android:textColor="@color/tv_color"
+	    android:text="@string/m_platform"/>
+</RelativeLayout>

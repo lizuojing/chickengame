@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dip" 
+    android:layout_height="wrap_content"
+    android:padding="5dip"
+    android:background="@drawable/layout_style" >
+    <TextView
+        android:id="@+id/tv_top" 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff6a6a"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:layout_margin="5dip"
+        android:text="@string/over_tv_data_page"/>
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_top"
+        android:layout_margin="5dip"
+        android:layout_marginBottom="35dip"
+        android:scrollbars="none">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="#ff3cb371"
+	        android:autoLink="web"
+	        android:textSize="15sp"
+	        android:text="@string/over_tv"/>
+	</ScrollView>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+	    <Button
+	        android:id="@+id/download"
+	        android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1.0"
+		    android:background="@drawable/over_button_green"
+		    android:textColor="@color/white"
+		    android:layout_marginRight="3dip"
+		    android:singleLine="true"
+		    android:text="@string/over_btn_download"/>
+	    <Button 
+	        android:id="@+id/cancel"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1.0"
+	        android:background="@drawable/over_button_red"
+	        android:textColor="@color/white"
+	        android:layout_marginLeft="3dip"
+	        android:singleLine="true"
+	        android:text="@string/over_btn_cancel"/>
+	</LinearLayout>
+</RelativeLayout>
+
+
+
+
+
+

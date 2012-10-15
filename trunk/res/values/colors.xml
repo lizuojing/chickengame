@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>	
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff030303</color>
+    <color name="transparent">#00000000</color>  
+	<color name="red">#ffeeee00</color>
+	<color name="yellow">#ffeeee00</color>	
+	<color name="titlebar_bg">#ff0c8649</color>
+		
+	<color name="mobile_menu_normal">#88abcdef</color>
+    <color name="mobile_menu_press">#ffffff00</color>
+    <color name="btn_bulletin_normal">#ff5fa819</color>
+    <color name="btn_bulletin_pressed">#ff0c8649</color>
+    <color name="btn_gamepush_normal">#ff2776ed</color>
+    <color name="btn_gamepush_pressed">#ff0c8649</color>
+    <color name="listdivider">#ff43cd80</color>
+    <color name="tv_color">#ff4eee94</color>
+</resources>

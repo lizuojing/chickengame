@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content"
+	android:padding="10dip">
+	
+	<TextView 
+	    android:id="@+id/list_item_title"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:textColor="@color/black"
+		android:layout_marginRight="50dip"
+		android:singleLine="true"
+		android:textSize="15sp" />
+	<TextView 
+	    android:id="@+id/list_item_date"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:textColor="#ff0c8649" 
+		android:gravity="right" 
+		android:textSize="15sp" />
+</RelativeLayout>

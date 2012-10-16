@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.rjxde0.zhongjiang1.utility.AppUtil;
 import com.rjxde0.zhongjiang1.utility.Config;
 import com.rjxde0.zhongjiang1.utility.NetHelper;
+import com.rjxde0.zhongjiang1.utility.StringUtils;
 import com.rjxde0.zhongjiang1.utility.UpdateManager;
 
 import android.app.Activity;
@@ -40,7 +42,8 @@ public class MoreActivity extends Activity {
     private int newVerCode = 0;
     private String newVerName = "";
     private String updateContent = "";
-	private static final String[]  titleItem = {"新闻中心", "最新截图欣赏", "分享给好友", "检测新版本", "软件意见反馈", "官方论坛"};	
+//	private static final String[]  titleItem = {"新闻中心", "最新截图欣赏", "分享给好友", "检测新版本", "软件意见反馈", "官方论坛"};	
+	private static final int[]  titleItem = {R.string.more_news,R.string.more_piclist,R.string.more_share,R.string.more_check,R.string.more_suggestion,R.string.more_forum};	
 	
 	private Handler handler = new Handler() {
 		@Override
@@ -67,7 +70,7 @@ public class MoreActivity extends Activity {
 		for (int i = 0; i < titleItem.length; i++) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("picture", R.drawable.ic_listitem);
-			map.put("title", titleItem[i]);		
+			map.put("title", getResources().getString(titleItem[i]));		
             list.add(map);
 		}
 	  
@@ -163,21 +166,37 @@ public class MoreActivity extends Activity {
 	private boolean getServerVerCode() {           
     	try {                    
     		String verjson = NetHelper.getContent(Config.UPDATE_SERVER + Config.UPDATE_VERJSON);                      
-    		JSONArray array = new JSONArray(verjson);                     
-    		if (array.length() > 0) {                                
-    			JSONObject obj = array.getJSONObject(0);                              
-    			try {                                     
-    				newVerCode = Integer.parseInt(obj.getString("verCode"));                                   
-    				newVerName = obj.getString("verName"); 
-    				updateContent = obj.getString("updateContent");
-    			} catch (Exception e) {                                    
-    				newVerCode = -1;                                    
-    				newVerName = ""; 
-    				updateContent = "";
-    				return false;                              
-    			}                      
-    		}               
-    	} catch (Exception e) {                     
+    		Log.i(TAG, "verjson is " + verjson);
+    		if(!StringUtils.isNullOrEmpty(verjson)) {
+    			JSONArray array = new JSONArray(verjson);                     
+        		if (array.length() > 0) {                                
+        			JSONObject obj = array.getJSONObject(0);                              
+        			try {                                     
+        				newVerCode = Integer.parseInt(obj.getString("verCode"));                                   
+        				newVerName = obj.getString("verName"); 
+        				updateContent = obj.getString("updateContent");
+        			}catch (JSONException je){
+        				je.printStackTrace();
+        				newVerCode = -1;                                    
+        				newVerName = ""; 
+        				updateContent = "";
+        				return false;    
+        			} catch (Exception e) {                                    
+        				newVerCode = -1;                                    
+        				newVerName = ""; 
+        				updateContent = "";
+        				return false;                              
+        			}                      
+        		}      	
+    		}
+    	}catch (JSONException je){
+			je.printStackTrace();
+			return false;         
+		}catch(OutOfMemoryError error){
+			error.printStackTrace();
+			return false;         
+		} catch (Exception e) {   
+    		e.printStackTrace();
     		Log.e(TAG, e.getMessage());                      
     		return false;               
     	}               

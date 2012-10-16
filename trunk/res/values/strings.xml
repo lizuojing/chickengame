@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">小鸡快跑游戏</string>
     <string name="bi_dialog_title">小鸡提示</string>
     <string name="over_tv">下载最新的游戏版本。 \n请点击下面按钮下载。\n下载完毕覆盖原安装包即可。\n也可手动下载：\n http://apk.4c27.com/xiaoji/xiaojigame1.apk</string>
-      
     <string name="home_btn_game">开始游戏</string>
     <string name="home_btn_image">游戏帮助</string>
     <string name="home_btn_experience">游戏设置</string>
     <string name="home_btn_more">更多选项</string>
     <string name="news_title">新闻资讯</string>
     <string name="image_previous">上一张</string>
-	<string name="image_next">下一张</string>
-	<string name="image_download_sdcard">下载至SD卡</string>
-	<string name="money_detail_title">详细内容</string>
-	<string name="more_title">更多功能</string>
+    <string name="image_next">下一张</string>
+    <string name="image_download_sdcard">下载至SD卡</string>
+    <string name="money_detail_title">详细内容</string>
+    <string name="more_title">更多功能</string>
     <string name="pay_title">游戏帮助</string>
     <string name="over_tv_data_page">最新版本下载</string>
     <string name="over_btn_download">立即下载</string>
     <string name="over_btn_cancel">取消</string>
-    
     <string name="dialog_network_error_title">提示信息</string>
-	<string name="dialog_network_error_message">未连接到网络！\n请检查你的网络设置。</string>
-	<string name="dialog_network_error_btn">马上去设置</string>
-	<string name="splash_tv">载入游戏中\u2026</string>
-	<string name="m_platform">———成都市恒通乐园———</string>
-	<string name="btn_back">返回</string>
-	
-	<string name="game_over">GAME OVER</string>
-    <string name="prompt_message">\n角色：默认\n生命：0\n伤害率：0\n麻痹状态：3次\n减速状态：1次 \n\n是否继续接受挑战？\n</string> 
+    <string name="dialog_network_error_message">未连接到网络！\n请检查你的网络设置。</string>
+    <string name="dialog_network_error_btn">马上去设置</string>
+    <string name="splash_tv">载入游戏中\u2026</string>
+    <string name="m_platform">———成都市恒通乐园———</string>
+    <string name="btn_back">返回</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="prompt_message">\n角色：默认\n生命：0\n伤害率：0\n麻痹状态：3次\n减速状态：1次 \n\n是否继续接受挑战？\n</string>
     <string name="again">再次挑战</string>
-    <string name="quit_game">退出游戏</string>  
+    <string name="quit_game">退出游戏</string>
+    <string name="more_news">新闻中心</string>
+    <string name="more_piclist">最新截图欣赏</string>
+    <string name="more_share">分享给好友</string>
+    <string name="more_check">检测新版本</string>
+    <string name="more_suggestion">软件意见反馈</string>
+    <string name="more_forum">官方论坛</string>
+
 </resources>
-
-
-

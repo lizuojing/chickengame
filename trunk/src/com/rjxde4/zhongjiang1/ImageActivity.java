@@ -50,6 +50,7 @@ public class ImageActivity extends Activity implements View.OnClickListener{
 	private HashMap<String, SoftReference<Bitmap>> bitmaps = new HashMap<String, SoftReference<Bitmap>>();
 	private ImageLoaderTask task;
 	private ImageDownloadTask download;
+	private int pageUp = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +151,14 @@ public class ImageActivity extends Activity implements View.OnClickListener{
 			}
 
 		} catch (OutOfMemoryError e) {
+			if(pageUp==0) {
+				
+			}else if(pageUp==1) {
+				position++;
+			}else if(pageUp==2) {
+				position--;
+			}
+			
 			e.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -244,7 +253,7 @@ public class ImageActivity extends Activity implements View.OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.pageup:
-			position--;
+			pageUp  = 1;
 			if (position <= 0) {
 				Toast.makeText(getApplicationContext(), "这是第一张",
 						Toast.LENGTH_LONG).show();
@@ -257,10 +266,11 @@ public class ImageActivity extends Activity implements View.OnClickListener{
 				task = new ImageLoaderTask();
 				task.execute();
 			}
+			position--;
 			break;
 	
 		case R.id.pagedown:
-			position++;
+			pageUp = 2;
 			if (position >= imageURL.length - 1) {
 				Toast.makeText(getApplicationContext(), "这是最后一张",
 						Toast.LENGTH_LONG).show();
@@ -273,6 +283,7 @@ public class ImageActivity extends Activity implements View.OnClickListener{
 				task = new ImageLoaderTask();
 				task.execute();
 			}
+			position++;
 			break;
 			
 		case R.id.download:

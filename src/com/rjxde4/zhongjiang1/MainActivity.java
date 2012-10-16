@@ -8,6 +8,7 @@ import com.rjxde0.zhongjiang1.gamefb.GameStartFB;
 import com.rjxde0.zhongjiang1.utility.AppUtil;
 import com.rjxde0.zhongjiang1.utility.Config;
 import com.rjxde0.zhongjiang1.utility.NetHelper;
+import com.rjxde0.zhongjiang1.utility.StringUtils;
 import com.rjxde0.zhongjiang1.utility.UpdateManager;
 
 import android.app.Activity;
@@ -180,17 +181,27 @@ public class MainActivity extends Activity implements
 	private boolean getServerVerCode() {           
     	try {                    
     		String verjson = NetHelper.getContent(Config.UPDATE_SERVER + Config.UPDATE_VERJSON);                      
-    		JSONArray array = new JSONArray(verjson);                     
-    		if (array.length() > 0) {                                
-    			JSONObject obj = array.getJSONObject(0);                              
-    			try {                                     
-    				newVerCode = Integer.parseInt(obj.getString("verCode"));                                   
-    			} catch (Exception e) {                                    
-    				newVerCode = -1;                                    
-    				return false;                              
-    			}                      
-    		}               
-    	} catch (Exception e) {                     
+    		JSONArray array = new JSONArray(verjson); 
+    		if(!StringUtils.isNullOrEmpty(verjson)) {
+    			if (array.length() > 0) {                                
+        			JSONObject obj = array.getJSONObject(0);                              
+        			try {                                     
+        				newVerCode = Integer.parseInt(obj.getString("verCode"));                                   
+        			}catch(OutOfMemoryError error){
+        				error.printStackTrace();
+        				newVerCode = -1;      
+        				return false;        
+        			} catch (Exception e) {                                    
+        				newVerCode = -1;                                    
+        				return false;                              
+        			}                      
+        		}            
+    		}
+    	}catch(OutOfMemoryError error){
+			error.printStackTrace();
+			return false;        
+		} catch (Exception e) {   
+    		e.printStackTrace();
     		Log.e(TAG, e.getMessage());                      
     		return false;               
     	}               

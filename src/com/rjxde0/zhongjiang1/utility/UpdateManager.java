@@ -56,6 +56,16 @@ public class UpdateManager {
 	//外部接口让主Activity调用
 	public void checkUpdateInfo(){
 		showDownloadDialog();
+		/*Intent intent = new Intent();
+		intent.setAction(Intent.ACTION_VIEW);
+		Uri downUrl = Uri.parse(Config.UPDATE_SERVER + Config.UPDATE_APKNAME);
+		intent.setData(downUrl);
+		try {
+			mContext.startActivity(intent);
+		} catch (Exception e) {
+			intent.setClassName("com.android.browser", "com.android.browser.BrowserActivity");
+			mContext.startActivity(intent);
+		}*/
 	}
 	
 	private void showDownloadDialog(){
@@ -82,7 +92,8 @@ public class UpdateManager {
 		
 		public void run() {
 			try {
-				URL url = new URL(Config.UPDATE_SERVER + Config.UPDATE_APKNAME);			
+//				URL url = new URL(Config.UPDATE_SERVER + Config.UPDATE_APKNAME);			
+				URL url = new URL("http://dig.chouti.com/download/Chouti/1.1/Android/build281/Chouti_Android_1.1_build281_for_gozap_release.apk");			
 				HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 				//连接服务器超时时间
 				conn.setConnectTimeout(5000);

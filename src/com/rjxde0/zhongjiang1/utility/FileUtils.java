@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import android.os.Environment;
+import android.util.Log;
 
 public class FileUtils {
 	private String SDPATH;
@@ -40,6 +41,17 @@ public class FileUtils {
 		dir.mkdir();
 		return dir;
 	}
+	
+	public File getCachePath() {
+		File dir = new File(SDPATH + "zhuanqian/cache");
+		dir.mkdirs();
+		return dir;
+	}
+	public File getAppPath() {
+		File dir = new File(SDPATH + "zhuanqian/");
+		dir.mkdirs();
+		return dir;
+	}
 
 	/**
 	 * 判断SD卡上的文件夹是否存在
@@ -47,6 +59,30 @@ public class FileUtils {
 	public boolean isFileExist(String fileName){
 		File file = new File(SDPATH + fileName);
 		return file.exists();
+	}
+	
+	
+	public File saveInputStreamToFile(InputStream inStream, String filePath) throws Exception
+	{
+		File fl = new File(filePath);
+        try
+        {  
+        	fl.createNewFile();  
+        }
+        catch (IOException e) 
+        {  
+            e.printStackTrace();
+        }  
+        
+	    FileOutputStream fos = new FileOutputStream(fl);
+	    byte[] buffer = new byte[1024];
+	    int len = -1;
+	    while( (len = inStream.read(buffer)) != -1 )
+	    {
+	    	fos.write(buffer, 0, len);
+	    }
+	    fos.close();
+	    return fl;
 	}
 	
 	/**
@@ -78,6 +114,20 @@ public class FileUtils {
 			}
 		}
 		return file;
+	}
+	public void deleteCacheFile() {
+		File file = new File(SDPATH + "zhuanqian/cache");
+		if(file!=null&&file.exists()) {
+			File[] files = file.listFiles();
+			for(File f :files) {
+				if(f.isFile()) {
+					f.delete();
+					Log.i("delete", f.getAbsolutePath());
+				}
+			}
+		}
+		file.delete();
+		
 	}
 
 }

@@ -112,7 +112,7 @@ public class UpdateManager {
 				FileOutputStream fos = new FileOutputStream(ApkFile);
 				
 				int count = 0;
-				byte buf[] = new byte[1024];				
+				byte buf[] = new byte[1024*4];				
 				do{   		   		
 		    		int numread = is.read(buf);
 		    		count += numread;

@@ -186,7 +186,7 @@ public class MainActivity extends Activity implements
     			if (array.length() > 0) {                                
         			JSONObject obj = array.getJSONObject(0);                              
         			try {                                     
-        				newVerCode = Integer.parseInt(obj.getString("verCode"));                                   
+        				newVerCode = Integer.parseInt(!StringUtils.isNullOrEmpty(obj.getString("verCode"))?obj.getString("verCode"):"0");                                   
         			}catch(OutOfMemoryError error){
         				error.printStackTrace();
         				newVerCode = -1;      

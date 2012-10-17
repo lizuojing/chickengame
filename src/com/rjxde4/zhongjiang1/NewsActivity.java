@@ -144,15 +144,14 @@ public class NewsActivity extends ListActivity implements View.OnClickListener {
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
 		NewsInfo newsInfo = newsInfos.get(position);
 		Intent intent = new Intent(NewsActivity.this, NewsDetailActivity.class);
-		Bundle bundle = new Bundle();
-		bundle.putString("title", newsInfo.getNewsTitle());
-		bundle.putString("date", newsInfo.getNewsDate());
-		bundle.putString("link", newsInfo.getLink());
-		intent.putExtra("newsData", bundle);
-
+		intent.putExtra("title", newsInfo.getNewsTitle());
+		intent.putExtra("date", newsInfo.getNewsDate());
+		intent.putExtra("link", newsInfo.getLink());
+		Log.i(TAG, "title is " + newsInfo.getNewsTitle());
+		Log.i(TAG, "date is " + newsInfo.getNewsDate());
+		Log.i(TAG, "txtName is " + newsInfo.getLink());
 		startActivity(intent);
 		super.onListItemClick(l, v, position, id);
 	}

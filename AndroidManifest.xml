@@ -2,38 +2,82 @@
     package="com.rjxde4.zhongjiang1"
     android:versionCode="2"
     android:versionName="1.2.0" >
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
     <uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <application android:icon="@drawable/app_logo" android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">     
-      
-        <activity android:name=".SplashActivity" android:screenOrientation="portrait">
-            <intent-filter>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:icon="@drawable/app_logo"
+        android:label="@string/app_name"
+        android:name=".XiaojiApp"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".NewsActivity" android:screenOrientation="portrait"></activity>    
-        <activity android:name=".NewsDetailActivity" android:screenOrientation="portrait"></activity>
-        
-        <activity android:name=".PayActivity" android:screenOrientation="portrait"></activity>
-                
-        <activity android:name=".AidActivity" android:screenOrientation="portrait" ></activity>
-        
-        <activity android:name=".ImageActivity" android:screenOrientation="portrait"></activity>
-        
-        <activity android:name=".MoreActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".AidUresActivity" android:screenOrientation="portrait"></activity>
-        
-    	<activity android:name="com.rjxde0.zhongjiang1.game.GameStart" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
-    	<activity android:name="com.rjxde0.zhongjiang1.game.GameOver" android:screenOrientation="landscape" android:theme="@android:style/Theme.Dialog"></activity>
-        <activity android:name="com.rjxde0.zhongjiang1.gamefb.GameStartFB" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
-    	<activity android:name="com.rjxde0.zhongjiang1.gamefb.GameOverFB" android:screenOrientation="landscape" android:theme="@android:style/Theme.Dialog"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".NewsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".NewsDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".PayActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".AidActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ImageActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".MoreActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".AidUresActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rjxde0.zhongjiang1.game.GameStart"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.rjxde0.zhongjiang1.game.GameOver"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.rjxde0.zhongjiang1.gamefb.GameStartFB"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.rjxde0.zhongjiang1.gamefb.GameOverFB"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
     </application>
-    
+
 </manifest>
-
-

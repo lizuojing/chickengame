@@ -127,12 +127,14 @@ public class NewsActivity extends ListActivity implements View.OnClickListener {
 
 	private SimpleAdapter buildSimpleAdapter(List<NewsInfo> newsInfos) {
 		List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
-		for (Iterator iterator = newsInfos.iterator(); iterator.hasNext();) {
-			NewsInfo mp3Info = (NewsInfo) iterator.next();
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("news_title", mp3Info.getNewsTitle());
-			map.put("news_date", mp3Info.getNewsDate());
-			list.add(map);
+		if(newsInfos!=null) {
+			for (Iterator iterator = newsInfos.iterator(); iterator.hasNext();) {
+				NewsInfo mp3Info = (NewsInfo) iterator.next();
+				HashMap<String, String> map = new HashMap<String, String>();
+				map.put("news_title", mp3Info.getNewsTitle());
+				map.put("news_date", mp3Info.getNewsDate());
+				list.add(map);
+			}
 		}
 		// 创建一个SimpleAdapter对象
 		SimpleAdapter simpleAdapter = new SimpleAdapter(this, list,

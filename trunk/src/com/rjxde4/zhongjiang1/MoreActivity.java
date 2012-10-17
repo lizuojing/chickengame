@@ -166,22 +166,26 @@ public class MoreActivity extends Activity {
 	private boolean getServerVerCode() {           
     	try {                    
     		String verjson = NetHelper.getContent(Config.UPDATE_SERVER + Config.UPDATE_VERJSON);                      
-    		Log.i(TAG, "verjson is " + verjson);
     		if(!StringUtils.isNullOrEmpty(verjson)) {
     			JSONArray array = new JSONArray(verjson);                     
         		if (array.length() > 0) {                                
         			JSONObject obj = array.getJSONObject(0);                              
-        			try {                                     
-        				newVerCode = Integer.parseInt(obj.getString("verCode"));                                   
+        			try {        
+        				String verCodeStr = obj.getString("verCode");
+        				newVerCode = Integer.parseInt(!StringUtils.isNullOrEmpty(verCodeStr)?verCodeStr:"0");                                   
         				newVerName = obj.getString("verName"); 
         				updateContent = obj.getString("updateContent");
+        				Log.i(TAG, "newVerCode is " + newVerCode);
+        				Log.i(TAG, "newVerName is " + newVerName);
+        				Log.i(TAG, "updateContent is " + updateContent);
         			}catch (JSONException je){
         				je.printStackTrace();
         				newVerCode = -1;                                    
         				newVerName = ""; 
         				updateContent = "";
         				return false;    
-        			} catch (Exception e) {                                    
+        			} catch (Exception e) { 
+        				e.printStackTrace();
         				newVerCode = -1;                                    
         				newVerName = ""; 
         				updateContent = "";

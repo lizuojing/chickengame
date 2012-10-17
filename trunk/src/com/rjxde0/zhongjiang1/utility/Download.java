@@ -17,7 +17,10 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
+import android.util.Log;
+
 public class Download {
+	private static final int CONNECTCOUNT = 5;
 	private URL url = null;
 	
 	/**
@@ -26,22 +29,34 @@ public class Download {
 	 * @return
 	 * @throws Exception
 	 */
-	public static String getNewsInfo(String url) throws Exception{
+	public static String getNewsInfo(String url) {
+		Log.i("download", "url is " + url);
         StringBuilder sb = new StringBuilder();
         HttpClient client = new DefaultHttpClient();
         HttpParams httpParams = client.getParams();  
         HttpConnectionParams.setConnectionTimeout(httpParams, 10*1000); //设置连接超时
         HttpConnectionParams.setSoTimeout(httpParams, 10*1000); //设置等待数据超时时间 
-        HttpResponse response = client.execute(new HttpGet(url));
-        HttpEntity entity = response.getEntity();
-        if (entity != null) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent(), "UTF-8"), 8192); 
-            String line = null;
-            while ((line = reader.readLine())!= null){
-                sb.append(line + "\n");
-            }
-            reader.close();
-        }
+        
+        int connectCount = 1;
+		do{
+        	 try {
+     			HttpResponse response = client.execute(new HttpGet(url));
+     			HttpEntity entity = response.getEntity();
+     			if (entity != null) {
+     			    BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent(), "UTF-8"), 8192); 
+     			    String line = null;
+     			    while ((line = reader.readLine())!= null){
+     			        sb.append(line + "\n");
+     			    }
+     			    reader.close();
+     			}
+     			break;
+     		} catch (Exception e) {
+     			connectCount++;
+     			e.printStackTrace();
+     		}
+       }while(connectCount <=CONNECTCOUNT);
+        
         return sb.toString();
     }
 	

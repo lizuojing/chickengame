@@ -92,8 +92,8 @@ public class UpdateManager {
 		
 		public void run() {
 			try {
-//				URL url = new URL(Config.UPDATE_SERVER + Config.UPDATE_APKNAME);			
-				URL url = new URL("http://dig.chouti.com/download/Chouti/1.1/Android/build281/Chouti_Android_1.1_build281_for_gozap_release.apk");			
+				URL url = new URL(Config.UPDATE_SERVER + Config.UPDATE_APKNAME);			
+//				URL url = new URL("http://dig.chouti.com/download/Chouti/1.1/Android/build281/Chouti_Android_1.1_build281_for_gozap_release.apk");			
 				HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 				//连接服务器超时时间
 				conn.setConnectTimeout(5000);

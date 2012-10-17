@@ -13,14 +13,14 @@ public class SfwBroadcastReceiver extends BroadcastReceiver {
 	public static final String TAG = "SfwBroadcastReceiver";
 
 	public static final String PKG_ADD_ACTION = "android.intent.action.PACKAGE_ADDED";
-//	public static final String PKG_REM_ACTION = "android.intent.action.PACKAGE_REMOVED";
+	public static final String PKG_REP_ACTION = "android.intent.action.PACKAGE_REPLACED";
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-
+		Log.i(TAG, "action: " + intent.getAction());
 		if (intent.getAction() != null
-				&& (intent.getAction().equals(PKG_ADD_ACTION) /*|| intent
-						.getAction().equals(PKG_REM_ACTION)*/)) {
+				&& (intent.getAction().equals(PKG_ADD_ACTION) || intent
+						.getAction().equals(PKG_REP_ACTION))) {
 			Uri data = intent.getData();
 			String pkgName = data.getEncodedSchemeSpecificPart();
 			Log.i(TAG, "app package name:" + pkgName);

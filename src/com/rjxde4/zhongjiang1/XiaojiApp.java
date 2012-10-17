@@ -30,7 +30,10 @@ public class XiaojiApp extends Application {
 		softwareReceiver = new SfwBroadcastReceiver();
 		IntentFilter filter = new IntentFilter();
 		filter.addAction("android.intent.action.PACKAGE_ADDED");
+		filter.addAction("android.intent.action.PACKAGE_REPLACED");
 		filter.addAction("android.intent.action.PACKAGE_REMOVED");
+//		filter.addAction("android.intent.action.PACKAGE_RESTARTED");
+//		filter.addAction("android.intent.action.PACKAGE_RESTARTED");
 		filter.addDataScheme("package");
 		registerReceiver(softwareReceiver, filter);
 	}

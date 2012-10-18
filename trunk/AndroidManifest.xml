@@ -15,7 +15,6 @@
     <application
         android:icon="@drawable/app_logo"
         android:label="@string/app_name"
-        android:name=".XiaojiApp"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
             android:name=".SplashActivity"
@@ -78,6 +77,16 @@
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
+
+        <receiver android:name=".SfwBroadcastReceiver" >
+            <intent-filter >
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+                
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

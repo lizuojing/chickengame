@@ -84,7 +84,7 @@
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
 
                 <data android:scheme="package" />
-                
+                <!-- 注意！！ 这句必须要加，否则接收不到BroadCast -->
             </intent-filter>
         </receiver>
     </application>

@@ -1,6 +1,5 @@
-package com.rjxde0.zhongjiang1.utility;
+package com.rjxde4.zhongjiang1;
 
-import com.rjxde4.zhongjiang1.SplashActivity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -11,16 +10,12 @@ import android.util.Log;
 public class SfwBroadcastReceiver extends BroadcastReceiver {
 
 	public static final String TAG = "SfwBroadcastReceiver";
-
-	public static final String PKG_ADD_ACTION = "android.intent.action.PACKAGE_ADDED";
-	public static final String PKG_REP_ACTION = "android.intent.action.PACKAGE_REPLACED";
-
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Log.i(TAG, "action: " + intent.getAction());
 		if (intent.getAction() != null
-				&& (intent.getAction().equals(PKG_ADD_ACTION) || intent
-						.getAction().equals(PKG_REP_ACTION))) {
+				&& (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED) || intent
+						.getAction().equals(Intent.ACTION_PACKAGE_REPLACED))) {
 			Uri data = intent.getData();
 			String pkgName = data.getEncodedSchemeSpecificPart();
 			Log.i(TAG, "app package name:" + pkgName);
@@ -31,8 +26,6 @@ public class SfwBroadcastReceiver extends BroadcastReceiver {
 	                startIntent.setAction("android.intent.action.MAIN");
 	                startIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					context.startActivity(startIntent);
-					
-					
 //				}
 			}
 		}

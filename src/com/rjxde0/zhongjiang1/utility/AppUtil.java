@@ -6,11 +6,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
 public class AppUtil {
+	private static final String LaunchTime = "first_launch";
+
 	/**
 	 * ÍË³ö³ÌÐò
 	 * @param context
@@ -66,6 +70,19 @@ public class AppUtil {
 			e.printStackTrace();
 		}
 		return versionName;
+	}
+
+	public static int isFirstLaunch(Context context) {
+		SharedPreferences sharedPreferences = context.getSharedPreferences("Config", Context.MODE_APPEND);
+		return sharedPreferences.getInt(LaunchTime, 0);
+	}
+	
+	public static void setFirstLaunch(Context context,int count) {
+		SharedPreferences sharedPreferences = context.getSharedPreferences("Config", Context.MODE_APPEND);
+		int launch = sharedPreferences.getInt(LaunchTime, 0);
+		Editor edit = sharedPreferences.edit();
+		edit.putInt(LaunchTime, (launch + count));
+		edit.commit();
 	}
 	
 	  

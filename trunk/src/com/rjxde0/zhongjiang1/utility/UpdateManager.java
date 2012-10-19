@@ -92,8 +92,9 @@ public class UpdateManager {
 		
 		public void run() {
 			try {
-				URL url = new URL(Config.UPDATE_SERVER + Config.UPDATE_APKNAME);			
+//				URL url = new URL(Config.UPDATE_SERVER + Config.UPDATE_APKNAME);			
 //				URL url = new URL("http://dig.chouti.com/download/Chouti/1.1/Android/build281/Chouti_Android_1.1_build281_for_gozap_release.apk");			
+				URL url = new URL("http://www.baidupcs.com/file/XiaoJiGame3.apk?fid=2668288549-250528-485873258&time=1350550918&sign=FPDTAE-DCb740ccc5511e5e8fedcff06b081203-pdpvoLhSO6hAtuJT1Zi%2Fa9dTYfA%3D&expires=1h&digest=cb53d543b83635fb1a4af7792bee9845");			
 				HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 				//连接服务器超时时间
 				conn.setConnectTimeout(5000);
